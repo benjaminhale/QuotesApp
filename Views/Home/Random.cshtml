@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Random Quote";
+}
+@model Quote
+
+@*This page displays a random quote taken from the database*@
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<h6>Here is a quote chosen at random from the database of quotes on this app:</h6>
+<br />
+
+<p>@Model.Text</p>
+
+<p>From @Model.Author</p>
+
+<p>Recorded on @Model.Date</p>
+

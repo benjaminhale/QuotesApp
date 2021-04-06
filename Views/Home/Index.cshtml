@@ -1,0 +1,58 @@
+﻿@model IEnumerable<QuotesApp.Models.Quote>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*This page displays all fields in the database.*@
+
+<h1>Quotes App</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Quote @Html.DisplayNameFor(model => model.Text)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Author) or Speaker
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Citation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Citation)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QuoteID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.QuoteID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
